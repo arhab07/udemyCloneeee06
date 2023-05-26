@@ -85,13 +85,13 @@ isBestSeller:true
 },
     
     
-    {title :"From Zero to Hero React Developer 2023",
+    {title :"From Zero to Hero React Developer 2022",
     image:"https://img-c.udemycdn.com/course/750x422/2365628_0b60_9.jpg",
-    author:"Andrew Tate",
+    author:"Tate",
     price: "3999",
-    rating:3.8,
+    rating:2,
     totalPrice:"499",
-    Totalrating:"(100,149)",
+    Totalrating:"(1,149)",
     isBestSeller:false
 },
     
@@ -139,12 +139,12 @@ isBestSeller:true
     
     {title :"From Zero to Hero React Developer 2023",
     image:"https://img-c.udemycdn.com/course/750x422/2365628_0b60_9.jpg",
-    author:"Andrew Tate",
+    author:"Andrew ",
     price: "3999",
-    rating:3.8,
+    rating:2.8,
     totalPrice:"499",
     Totalrating:"(100,149)",
-    isBestSeller:false
+    isBestSeller:true
 },
     
 

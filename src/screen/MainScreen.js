@@ -7,6 +7,7 @@ import { UdemyBar } from "../components/Appbar";
 import { Container1 } from "../components/Container/Container1";
 import { Container2 } from "../components/Container/Container2";
 import { Container3 } from "../components/Container/Container3";
+import { Container4 } from "../components/Container/Container4";
 const isAndroid = Platform.OS === "android"
 
 const SafeArea = styled(SafeAreaView)`
@@ -31,6 +32,7 @@ export const MainScreen = () => {
                 <Container1 />
                 <Container2 />
                 <Container3 />
+                <Container4 />
                 </View>
             </ScrollView>
             </SafeArea>
