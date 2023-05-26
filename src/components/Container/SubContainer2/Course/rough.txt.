@@ -1,0 +1,103 @@
+export const StudentsScroll = () => {
+  const flatListsRef = useRef([]);
+
+  const renderRatingStars = (rating) => {
+    const fullStars = Math.floor(rating);
+    const halfStar = rating - fullStars >= 0.5;
+
+    const stars = [];
+
+    for (let i = 0; i < fullStars; i++) {
+      stars.push(<FontAwesome key={i} name="star" color={"gold"} />);
+    }
+
+    if (halfStar) {
+      stars.push(<FontAwesome key={fullStars} name="star" color={"gold"} />);
+    }
+
+    return stars;
+  };
+
+  const handleScroll = (event) => {
+    // Synchronize the scroll positions of all FlatLists
+    const scrollOffset = event.nativeEvent.contentOffset.x;
+
+    flatListsRef.current.forEach((flatListRef) => {
+      if (flatListRef && flatListRef.current) {
+        flatListRef.current.scrollToOffset({ offset: scrollOffset, animated: false });
+      }
+    });
+  };
+
+    const  renderItem={({ item }) => {
+          return (
+            <TouchableOpacity>
+              <View2>
+                <View style={{ flexDirection: "row" }}>
+                  <Image
+                    style={{ width: 80, height: 80 }}
+                    source={{ uri: item.image }}
+                  />
+                  <View style={{ flexDirection: "column", width: "50%", marginLeft: 13 }}>
+                    <Text style={{ fontSize: 16, fontWeight: "bold" }}>{item.title}</Text>
+                    <Text style={{ fontSize: 12, marginVertical: 5 }}>{item.author}</Text>
+                    <View style={{ flexDirection: "row", justifyContent: "flex-start" }}>
+                      {renderRatingStars(item.rating)}
+                      <Text style={{ marginLeft: 8 }}>{item.Totalrating}</Text>
+                    </View>
+                    <View style={{ flexDirection: "row", marginVertical: 4, justifyContent: "flex-start" }}>
+                      <Text style={{ fontSize: 16, fontWeight: "bold" }}>₹{item.totalPrice}</Text>
+                      <Text style={{ textDecorationLine: "line-through", marginLeft: 6 }}>₹{item.price}</Text>
+                    </View>
+                    {item.isBestSeller && (
+                      <View style={{ width: 100, height: 30, backgroundColor: "#ECEB98", justifyContent: "center", alignItems: "center" }}>
+                        <Text style={{ color: "black" }}>Best Seller</Text>
+                      </View>
+                    )}
+                  </View>
+                </View>
+              </View2>
+            </TouchableOpacity>
+          );
+  };
+
+  return (
+    <View style={{ flex: 1 }} onTouchStart={handleScroll}>
+      <FlatList
+        ref={(ref) => (flatListsRef.current[0] = ref)}
+        data={desginCourse}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        renderItem={({ item }) => (
+          <TouchableOpacity>
+            {/* Render item */}
+          </TouchableOpacity>
+        )}
+      />
+
+      <FlatList
+        ref={(ref) => (flatListsRef.current[1] = ref)}
+        data={WebCourse}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        renderItem={({ item }) => (
+          <TouchableOpacity>
+            {/* Render item */}
+          </TouchableOpacity>
+        )}
+      />
+
+      <FlatList
+        ref={(ref) => (flatListsRef.current[2] = ref)}
+        data={WeCourse}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        renderItem={({ item }) => (
+          <TouchableOpacity>
+            {/* Render item */}
+          </TouchableOpacity>
+        )}
+      />
+    </View>
+  );
+};
