@@ -8,6 +8,8 @@ import { Container1 } from "../components/Container/Container1";
 import { Container2 } from "../components/Container/Container2";
 import { Container3 } from "../components/Container/Container3";
 import { Container4 } from "../components/Container/Container4";
+import { Container5 } from "../components/Container/Container5";
+import { Container6 } from "../components/Container/Container6";
 const isAndroid = Platform.OS === "android"
 
 const SafeArea = styled(SafeAreaView)`
@@ -33,6 +35,8 @@ export const MainScreen = () => {
                 <Container2 />
                 <Container3 />
                 <Container4 />
+                <Container5 />
+                <Container6 />
                 </View>
             </ScrollView>
             </SafeArea>

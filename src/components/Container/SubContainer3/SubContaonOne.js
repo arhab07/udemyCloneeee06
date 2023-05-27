@@ -4,7 +4,7 @@ import { Text } from "react-native-paper";
 import styled from "styled-components";
 
 const View2 = styled.View`
-  margin-top: ${(props) => props.theme.space[6]};
+  margin-top: ${(props) => props.theme.space[5]};
 `;
 
 const Text1 = styled.Text`

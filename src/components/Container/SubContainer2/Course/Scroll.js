@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useCallback } from "react";
 import { View, FlatList, TouchableOpacity, Image, Text } from "react-native";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import styled from "styled-components";
@@ -11,8 +11,7 @@ const View1 = styled(View)`
 `;
 
 const View2 = styled(View)`
-  width: 300px;
-  height: 10%;
+  width: 250px;
   margin-left: 20px;
 `;
 
@@ -36,7 +35,7 @@ export const StudentsScroll = () => {
     return stars;
   };
 
-  const handleScroll = (event, index) => {
+  const handleScroll = useCallback((event, index) => {
     const scrollOffset = event.nativeEvent.contentOffset.x;
 
     flatListsRefs.current.forEach((ref, i) => {
@@ -44,42 +43,40 @@ export const StudentsScroll = () => {
         ref.scrollToOffset({ offset: scrollOffset, animated: false });
       }
     });
-  };
+  }, []);
 
   const renderItem = (item, index) => {
     return (
-      // <TouchableOpacity>
-        <View2>
-          <View style={{ flexDirection: "row" }}>
-            <Image style={{ width: 80, height: 80 }} source={{ uri: item.image }} />
-            <View style={{ flexDirection: "column", width: "50%", marginLeft: 13 }}>
-              <Text style={{ fontSize: 16, fontWeight: "bold" }}>{item.title}</Text>
-              <Text style={{ fontSize: 12, marginVertical: 5 }}>{item.author}</Text>
-              <View style={{ flexDirection: "row", justifyContent: "flex-start" }}>
-                {renderRatingStars(item.rating)}
-                <Text style={{ marginLeft: 8 }}>{item.Totalrating}</Text>
-              </View>
-              <View style={{ flexDirection: "row", marginVertical: 4, justifyContent: "flex-start" }}>
-                <Text style={{ fontSize: 16, fontWeight: "bold" }}>₹{item.totalPrice}</Text>
-                <Text style={{ textDecorationLine: "line-through", marginLeft: 6 }}>₹{item.price}</Text>
-              </View>
-              {item.isBestSeller && (
-                <View
-                  style={{
-                    width: 100,
-                    height: 30,
-                    backgroundColor: "#ECEB98",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <Text style={{ color: "black" }}>Best Seller</Text>
-                </View>
-              )}
+      <View2>
+        <View style={{ flexDirection: "row" }}>
+          <Image style={{ width: 80, height: 80 }} source={{ uri: item.image }} />
+          <View style={{ flexDirection: "column", width: "50%", marginLeft: 13 }}>
+            <Text style={{ fontSize: 16, fontWeight: "bold" }}>{item.title}</Text>
+            <Text style={{ fontSize: 12, marginVertical: 5 }}>{item.author}</Text>
+            <View style={{ flexDirection: "row", justifyContent: "flex-start" }}>
+              {renderRatingStars(item.rating)}
+              <Text style={{ marginLeft: 8 }}>{item.Totalrating}</Text>
             </View>
+            <View style={{ flexDirection: "row", marginVertical: 4, justifyContent: "flex-start" }}>
+              <Text style={{ fontSize: 16, fontWeight: "bold" }}>₹{item.totalPrice}</Text>
+              <Text style={{ textDecorationLine: "line-through", marginLeft: 6 }}>₹{item.price}</Text>
+            </View>
+            {item.isBestSeller && (
+              <View
+                style={{
+                  width: 100,
+                  height: 20,
+                  backgroundColor: "#ECEB98",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <Text style={{ color: "black", fontWeight: "bold" }}>Best Seller</Text>
+              </View>
+            )}
           </View>
-        </View2>
-      // </TouchableOpacity>
+        </View>
+      </View2>
     );
   };
 

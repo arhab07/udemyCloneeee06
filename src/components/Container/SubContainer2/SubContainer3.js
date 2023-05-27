@@ -21,12 +21,12 @@ const Text1 = styled(Text)`
 const Container = styled(View)`
   background-color: #F6F9FA;
   margin-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
 `;
 
 
 const View2 = styled(View)`
-margin-top : 48px;
+margin-top : 16px;
 padding-horizontal:24px;
 `
 const Students = styled(Text)`

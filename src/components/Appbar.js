@@ -1,13 +1,14 @@
 import React from "react";
-import { View , TouchableOpacity, Image } from "react-native";
+import { View, TouchableOpacity, Image } from "react-native";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
-import styled from "styled-components/native";
+import styled from "styled-components";
+import { useNavigation } from "@react-navigation/native";
 
 const AppBar = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding-horizontal: ${props => props.theme.space[4]};
+  padding-horizontal: ${props => props.theme.space[2]};
   height: 56px;
   background-color: #ffffff;
 `;
@@ -35,30 +36,33 @@ const TrailingButton = styled(TouchableOpacity)`
 `;
 
 export const UdemyBar = () => {
+  const navigation = useNavigation();
+
+  const handleToggleDrawer = () => {
+    navigation.toggleDrawer();
+  };
+
   return (
-    <>
-      <AppBar>
-        <LeadingButton>
-          <Icon name="menu" size={24} />
-        </LeadingButton>
+    <AppBar>
+      <LeadingButton onPress={handleToggleDrawer}>
+        <Icon name="menu" size={24} />
+      </LeadingButton>
 
-        <TitleContainer>
-          <TitleImage
-            source={{
-              uri:
-                "https://logowik.com/content/uploads/images/udemy-new-20212512.jpg",
-            }}
-          />
-        </TitleContainer>
+      <TitleContainer>
+        <TitleImage
+          source={{
+            uri: "https://logowik.com/content/uploads/images/udemy-new-20212512.jpg",
+          }}
+        />
+      </TitleContainer>
 
-        <TrailingButton>
-          <Icon name="magnify" size={24} />
-        </TrailingButton>
+      <TrailingButton>
+        <Icon name="magnify" size={24} />
+      </TrailingButton>
 
-        <TrailingButton>
-          <Icon name="cart-outline" size={24} />
-        </TrailingButton>
-      </AppBar>
-    </>
+      <TrailingButton>
+        <Icon name="cart-outline" size={24} />
+      </TrailingButton>
+    </AppBar>
   );
 };

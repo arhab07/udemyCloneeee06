@@ -6,7 +6,7 @@ import { Feature } from "./SubContainer4/Feature";
 
 const View1 = styled(View)`
 padding-horizontal : ${props => props.theme.space[5] };
-padding-Vertical : ${props => props.theme.space[6] };
+padding-Vertical : ${props => props.theme.space[5] };
 background-color: #F6F9FA;
 `
 

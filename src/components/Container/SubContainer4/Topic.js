@@ -37,10 +37,10 @@ export const TopicGrid = ({ topics }) => {
         <View style={{ flexDirection: 'row' }}>
           {topics.map((category, index) => (
             <CategoryContainer key={index}>
-              <CategoryTitle>{category.category}</CategoryTitle>
+              <CategoryTitle key={index}>{category.category}</CategoryTitle>
               <View>
-                {category.items.map(topic => (
-                  <TopicContainer>
+                {category.items.map((topic , index) => (
+                  <TopicContainer key={index}>
                     <TopicName color={topic.color} underline={topic.underline}>
                       {topic.name}
                     </TopicName>

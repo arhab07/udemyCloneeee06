@@ -18,9 +18,9 @@ const View3 = styled(View)`
  ${'' /* background-color: red;  */}
 border-width: 0.8px;
   border-color: #a3a7ad;
-  height: 350px;
-   width: 350px; 
-  margin-left: 45px;
+  height: 370px;
+   width: 320px; 
+  margin-left: 10px;
 background-color: #ffffff; 
   ${'' /* margin-bottom:-10px; */}
     ${'' /* max-width:50px; */}
@@ -81,7 +81,7 @@ export const Box3 = () => {
           <View2>
       <FlatList
         data={Revies}
-        keyExtractor={(item) => item.key}
+        keyExtractor={(_ , index) => index}
         horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.contentContainer}

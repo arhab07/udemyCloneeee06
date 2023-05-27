@@ -13,7 +13,7 @@ const TextHeading = styled(Text)`
   font-weight: ${props => props.theme.fontWeights.bold};
 `;
 const ExploreBox = styled(View)`
-height:50;
+height:50px;
 width:100%;
 margin-top:20px;
 border-width:1px;
