@@ -64,12 +64,18 @@ export const PersonalTransformation = [
   { title: "Email Marketing" },
 ];
 export const BackendDevelopment = [
-  { title: "Social Media Marketing" },
-  { title: "Content Marketing" },
-  { title: "Email Marketing" },
+  { title: "Node js" },
+  { title: "Python" },
+  { title: "SQL" },
+  { title: "MongoDB" },
+  { title: "PHP Developer" },
+  { title: "Java" },
 ];
 export const AllCategories = [
-  { title: "Social Media Marketing" },
-  { title: "Content Marketing" },
-  { title: "Email Marketing" },
+  { title: "Development" },
+  { title: "Business" },
+  { title: "IT & Software" },
+  { title: "Teaching" },
+  { title: "Marketing" },
+  { title: "Desgin" },
 ];

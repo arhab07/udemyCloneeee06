@@ -1,18 +1,27 @@
-import {React , useState }from "react";
-import { View, TouchableOpacity, StyleSheet, Platform , Dimensions } from "react-native";
+import React, { useState } from "react";
+import { View, TouchableOpacity, StyleSheet, Platform, Dimensions, Button } from "react-native";
 import { Text } from "react-native-paper";
 import Constants from 'expo-constants';
 import { Entypo } from "@expo/vector-icons";
 import { Fontisto } from "@expo/vector-icons";
-import {tags , categories } from "./data";
+import { tags, categories } from "./data";
 import { SubDrawerContent } from "./SubDrawer";
-import { WebDevelopment , GameDevelopment , DigitalMarketing , PersonalTransformation , BackendDevelopment , AllCategories , MobileDevelopment } from "./data";
+import { WebDevelopment, GameDevelopment, DigitalMarketing, PersonalTransformation, BackendDevelopment, AllCategories, MobileDevelopment } from "./data";
+import { useNavigation } from '@react-navigation/native';
+
 export const MainDrawer = () => {
+  const navigation = useNavigation();
   const isAndroid = Platform.OS === "android";
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get("window").height;
   const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(null);
 
+  const handleLogin = () => {
+    navigation.navigate("mainScreen");
+  };
+  const createAccount = () => {
+    navigation.navigate("mainCreateScreen")
+  }
   const handleLoginPress = (index) => {
     setSelectedCategoryIndex(index);
   };
@@ -21,42 +30,44 @@ export const MainDrawer = () => {
     let categoryData = [];
     const selectedCategory = categories[selectedCategoryIndex];
 
-    switch (selectedCategory.title) {
-      case "Web Development":
-        categoryData = WebDevelopment;
-        break;
-      case "Mobile Development":
-        categoryData = MobileDevelopment;
-        break;
-      case "Game Development":
-        categoryData = GameDevelopment;
-        break;
-      case "Digital Marketing":
-        categoryData = DigitalMarketing;
-        break;
-      case "Personal Transformation":
-        categoryData = PersonalTransformation;
-        break;
-      case "Backend Development":
-        categoryData = BackendDevelopment;
-        break;
-      case "All Categories":
-        categoryData = AllCategories;
-        break;
-      default:
-        categoryData = []; // Set a default value if no matching category is found
-        break;
-    }
-    
+    // Check if selectedCategory exists before accessing its title property
+    if (selectedCategory && selectedCategory.title) {
+      switch (selectedCategory.title) {
+        case "Web Development":
+          categoryData = WebDevelopment;
+          break;
+        case "Mobile Development":
+          categoryData = MobileDevelopment;
+          break;
+        case "Game Development":
+          categoryData = GameDevelopment;
+          break;
+        case "Digital Marketing":
+          categoryData = DigitalMarketing;
+          break;
+        case "Personal Transformation":
+          categoryData = PersonalTransformation;
+          break;
+        case "Backend Development":
+          categoryData = BackendDevelopment;
+          break;
+        case "All Categories":
+          categoryData = AllCategories;
+          break;
+        default:
+          categoryData = []; // Set a default value if no matching category is found
+          break;
+      }
 
-    return <SubDrawerContent category={categoryData} />;
+      return <SubDrawerContent category={categoryData} />;
+    }
   }
 
   return (
     <View style={{ paddingTop: isAndroid ? Constants.statusBarHeight : 0 }}>
       <View style={{ flexDirection: "column", paddingVertical: 8 }}>
-        <Text style={{ paddingVertical: 6, paddingHorizontal: 16, color: "#5624D0", fontSize: 16 }}>Log in</Text>
-        <Text style={{ paddingVertical: 8, paddingHorizontal: 16, color: "#5624D0", fontSize: 16 }}>Sign up</Text>
+        <Text style={{ paddingVertical: 6, paddingHorizontal: 16, color: "#5624D0", fontSize: 16 }} onPress={handleLogin}>Log in</Text>
+        <Text style={{ paddingVertical: 8, paddingHorizontal: 16, color: "#5624D0", fontSize: 16 }}  onPress={createAccount}  >Sign up</Text>
       </View>
       <View style={{ borderBottomColor: "#6a6f73", borderBottomWidth: 0.5, width: "140%" }}></View>
       <View style={{ paddingVertical: 16, paddingHorizontal: 16 }}>

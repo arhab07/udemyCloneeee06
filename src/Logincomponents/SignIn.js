@@ -14,7 +14,7 @@ const SignInVi = styled(Text)`
 export const SignIn = () => {
   return (
     <>
-      
+      <SafeAreaView style={styles.container}>
         <View style={styles.view}>
           <SignInVi variant="headlineMedium">Sign in</SignInVi>
           <Text style={styles.textSign}>
@@ -25,7 +25,7 @@ export const SignIn = () => {
             </Text>
           </Text>
         </View>
-
+      </SafeAreaView>
     </>
   );
 };
@@ -48,7 +48,6 @@ const styles = StyleSheet.create({
     color: "#898b8c",
   },
   termsPrivacyText: {
-    
     fontWeight: "500",
     color: "#68696b",
   },
