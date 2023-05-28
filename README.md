@@ -9,7 +9,7 @@ Clone this repository:
 
 bash
 Copy code
-git clone https://github.com/your-username/udemy-clone.git
+git clone https://github.com/YOUR_NAME/UdemyWeb.git
 Navigate to the project directory:
 
 bash
