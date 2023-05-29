@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   },
   iconContainer: {
     paddingLeft: 20,
-    marginTop: isAndroid ? 0 : StatusBar.currentHeight,
+    marginTop: isAndroid ? 0 : StatusBar.currentHeight + 45,
   },
   androidIconContainer: {
     paddingLeft: 20,

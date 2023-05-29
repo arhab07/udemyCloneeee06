@@ -16,7 +16,11 @@ export const CreateScreenUI = () => {
   const navigation = useNavigation();
   
   const handleGoBack = () => {
-    navigation.goBack(); // Go back to the previous screen
+    if (navigation.canGoBack()) {
+      navigation.goBack(); // Go back to the previous screen
+    } else {
+      navigation.navigate("MainScreenUI"); // Navigate to the CreateScreenUI screen
+    }
   };
   return (
     <>
@@ -39,7 +43,7 @@ const styles = StyleSheet.create({
   },
   iconContainer: {
     paddingLeft: 20,
-    marginTop: isAndroid ? 0 : StatusBar.currentHeight,
+    marginTop: isAndroid ? 0 : StatusBar.currentHeight + 15,
   },
   androidIconContainer: {
     paddingLeft: 20,

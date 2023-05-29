@@ -17,10 +17,10 @@ export const MainDrawer = () => {
   const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(null);
 
   const handleLogin = () => {
-    navigation.navigate("mainScreen");
+    navigation.navigate("MainScreenUI");
   };
   const createAccount = () => {
-    navigation.navigate("mainCreateScreen")
+    navigation.navigate("CreateScreenUI")
   }
   const handleLoginPress = (index) => {
     setSelectedCategoryIndex(index);
