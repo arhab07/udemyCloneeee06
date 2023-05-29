@@ -4,10 +4,6 @@ export const categories = [
     { title: "Game Development" },
     { title: "Digital Marketing" },
     { title: "Personal Transformation" },
-
-
-    { title: "Backend Development" },
-
     { title: "All Categories" },
   ];
 
@@ -63,14 +59,14 @@ export const PersonalTransformation = [
   { title: "Content Marketing" },
   { title: "Email Marketing" },
 ];
-export const BackendDevelopment = [
-  { title: "Node js" },
-  { title: "Python" },
-  { title: "SQL" },
-  { title: "MongoDB" },
-  { title: "PHP Developer" },
-  { title: "Java" },
-];
+// export const BackendDevelopment = [
+//   { title: "Node js" },
+//   { title: "Python" },
+//   { title: "SQL" },
+//   { title: "MongoDB" },
+//   { title: "PHP Developer" },
+//   { title: "Java" },
+// ];
 export const AllCategories = [
   { title: "Development" },
   { title: "Business" },
