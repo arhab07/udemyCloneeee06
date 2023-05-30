@@ -1,45 +1,48 @@
-
 import { Flex } from "@react-native-material/core";
-import React from "react";
-import {View, SafeAreaView , Text , StatusBar , Platform ,ScrollView } from "react-native";
+import {React, useState , useEffect} from "react";
+import { View, SafeAreaView, Text, StatusBar, Platform, ScrollView } from "react-native";
 import styled from "styled-components";
 import { UdemyBar } from "../components/Appbar";
-import { Container1 } from "../components/Container/Container1";
-import { Container2 } from "../components/Container/Container2";
-import { Container3 } from "../components/Container/Container3";
-import { Container4 } from "../components/Container/Container4";
-import { Container5 } from "../components/Container/Container5";
-import { Container6 } from "../components/Container/Container6";
-const isAndroid = Platform.OS === "android"
+import containersData from "./Component.json";
 
+
+
+
+const isAndroid = Platform.OS === "android";
+import { getContainerComponent } from "./ContainerJson/TotalContainer";
 const SafeArea = styled(SafeAreaView)`
-flex : 1 ;
-background-color: ${(props) =>  props.theme.colors.ui.quaternary} 
-`
-
-
+  flex: 1;
+  background-color: ${(props) => props.theme.colors.ui.quaternary};
+`;
 const Container = styled(SafeArea)`
-marginTop : ${isAndroid ? StatusBar.currentHeight + "px" : "0"}
-`
+  marginTop: ${isAndroid ? StatusBar.currentHeight + "px" : "0"};
+`;
 
 export const MainScreen = () => {
-    
-
-    return(
-        <Container>
-            <SafeArea>
-            <ScrollView>
-                <UdemyBar />
-                <View style={{flex:0.5 , marginTop:0} }>
-                <Container1 />
-                <Container2 />
-                <Container3 />
-                <Container4 />
-                <Container5 />
-                <Container6 />
-                </View>
-            </ScrollView>
-            </SafeArea>
-        </Container>
-    )
-}
+    const [containers, setContainers] = useState([]);
+  
+    useEffect(() => {
+        const excludedIds = [7,8]; // removes the components 
+        const updatedContainers = containersData.containers.filter((container) => {
+          return !excludedIds.includes(container.id);
+        });
+        setContainers(updatedContainers);
+      }, []);
+  
+    return (
+      <Container>
+        <SafeArea>
+          <ScrollView>
+            <UdemyBar />
+            <View style={{ flex: 0.5, marginTop: 0 }}>
+              {containers.map((container) => {
+                const ContainerComponent = getContainerComponent(container.component);
+                  return <ContainerComponent key={container.id} />;
+              
+              })}
+            </View>
+          </ScrollView>
+        </SafeArea>
+      </Container>
+    );
+  };

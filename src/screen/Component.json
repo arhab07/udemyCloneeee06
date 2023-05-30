@@ -1,0 +1,36 @@
+{
+  "containers": [
+    {
+      "id": 1,
+      "component": "Container1"
+    },
+    {
+      "id": 2,
+      "component": "Container2"
+    },
+    {
+      "id": 3,
+      "component": "Container3"
+    },
+    {
+      "id": 4,
+      "component": "Container4"
+    },
+    {
+      "id": 5,
+      "component": "Container5"
+    },
+    {
+      "id": 6,
+      "component": "Container6"
+    },
+    {
+      "id": 7,
+      "component": "Container7"
+    },
+    {
+      "id": 8,
+      "component": "Container8"
+    }
+  ]
+}

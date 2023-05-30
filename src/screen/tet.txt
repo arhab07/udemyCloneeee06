@@ -1,0 +1,38 @@
+import { Flex } from "@react-native-material/core";
+import React from "react";
+import { View, SafeAreaView, Text, StatusBar, Platform, ScrollView } from "react-native";
+import styled from "styled-components";
+import { UdemyBar } from "../components/Appbar";
+import containersData from "./Component.json";
+const isAndroid = Platform.OS === "android";
+import { getContainerComponent } from "./ContainerJson/TotalContainer";
+const SafeArea = styled(SafeAreaView)`
+  flex: 1;
+  background-color: ${(props) => props.theme.colors.ui.quaternary};
+`;
+const Container = styled(SafeArea)`
+  marginTop: ${isAndroid ? StatusBar.currentHeight + "px" : "0"};
+`;
+
+
+export const MainScreen = () => {
+  return (
+    <Container>
+      <SafeArea>
+        <ScrollView>
+          <UdemyBar />
+          <View style={{ flex: 0.5, marginTop: 0 }}>
+            {containersData.containers.map((container) => {
+              const ContainerComponent = getContainerComponent(container.component);
+                 if (ContainerComponent) {
+                return <ContainerComponent key={container.id} />;
+              } else {
+                return null; // Skip rendering if ContainerComponent is null
+              };
+            })}
+          </View>
+        </ScrollView>
+      </SafeArea>
+    </Container>
+  );
+};
