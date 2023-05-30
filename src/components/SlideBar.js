@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, TouchableOpacity, Dimensions, SafeAreaView } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, Dimensions, SafeAreaView  ,Platform} from 'react-native';
 import { useIsDrawerOpen } from '@react-navigation/drawer';
 import { Avatar } from 'react-native-paper';
 import { Text } from 'react-native-paper';
@@ -8,7 +8,7 @@ import {useDrawerProgress} from "@react-navigation/drawer"
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
-
+const isAndroid = Platform.OS === "android"
 export const CustomDrawerContent = ({ navigation }) => {
   const isDrawerOpen = useDrawerProgress();
 
@@ -35,7 +35,7 @@ export const CustomDrawerContent = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   drawerContentContainer: {
-    flex: 0.1,
+    flex: isAndroid ? 0.01 : 0 ,
     paddingTop: 6,
     backgroundColor: '#fff',
   },
