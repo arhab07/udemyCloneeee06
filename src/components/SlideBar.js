@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   closeIcon: {
-    position: "absolute",
+    position: "absolute ",
     top: Platform.OS === 'android' ? windowWidth * 0.1 : windowHeight * 0.01,
     left: "50%",
     transform: [{ translateX: 200 }, { translateY: Platform.OS === 'android' ? 10 : 0 }],
