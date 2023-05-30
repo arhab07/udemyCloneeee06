@@ -31,7 +31,7 @@ const DrawerNavigator = () => {
       initialRouteName="Main"
       drawerContent={(props) => <CustomDrawerContent {...props} />}
     >
-      <Drawer.Screen name="Main" component={MainStack} />
+      <Drawer.Screen name="Main" options={{ headerShown: false }} component={MainStack} />
     </Drawer.Navigator>
   );
 };

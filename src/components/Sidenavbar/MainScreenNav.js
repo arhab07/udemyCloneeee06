@@ -15,7 +15,7 @@ export const MainDrawer = () => {
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get("window").height;
   const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(null);
-
+ const width = isAndroid ? "135%" : "140%"
   const handleLogin = () => {
     navigation.navigate("MainScreenUI");
   };
@@ -69,7 +69,7 @@ export const MainDrawer = () => {
         <Text style={{ paddingVertical: 6, paddingHorizontal: 16, color: "#5624D0", fontSize: 16 }} onPress={handleLogin}>Log in</Text>
         <Text style={{ paddingVertical: 8, paddingHorizontal: 16, color: "#5624D0", fontSize: 16 }}  onPress={createAccount}  >Sign up</Text>
       </View>
-      <View style={{ borderBottomColor: "#6a6f73", borderBottomWidth: 0.5, width: "140%" }}></View>
+      <View style={{ borderBottomColor: "#6a6f73", borderBottomWidth: 0.5, width: width }}></View>
       <View style={{ paddingVertical: 16, paddingHorizontal: 16 }}>
         <Text style={{ fontSize: 12, fontWeight: "bold", color: "#6a6f73" }}>Most popular</Text>
       </View>
@@ -90,7 +90,7 @@ export const MainDrawer = () => {
           </TouchableOpacity>
         ))}
       </View>
-      <View style={{ borderBottomColor: "#6a6f73", borderBottomWidth: 0.5, width: "140%", marginTop: 10 }}></View>
+      <View style={{ borderBottomColor: "#6a6f73", borderBottomWidth: 0.5, width: width, marginTop: 10 }}></View>
       <View style={{ paddingVertical: 16, paddingHorizontal: 16 }}>
         <Text style={{ fontSize: 12, fontWeight: "bold", color: "#6a6f73" }}>More From Udemy</Text>
       </View>

@@ -7,7 +7,7 @@ import Constants from 'expo-constants';
 const getHeight = Dimensions.get("window").height;
 const isAndroid = Platform.OS === "android";
 import { Entypo } from "@expo/vector-icons";
-
+const width = isAndroid ? "135%" : "140%"
 
 export const SubDrawerContent = ({ category }) => {
   const [isLoginPressed, setIsLoginPressed] = useState(false);
@@ -21,7 +21,7 @@ export const SubDrawerContent = ({ category }) => {
   }
 
   return (
-    <View style={{ width: "140%", paddingTop: isAndroid ? Constants.statusBarHeight : 0 }}>
+    <View style={{ width: width, paddingTop: isAndroid ? Constants.statusBarHeight : 0 }}>
       <View style={{ backgroundColor: "#f7f9fa", padding: 16, flexDirection: "row" }}>
         <TouchableOpacity onPress={handleLoginPress} style={{ flexDirection: "row" }}>
           <Entypo name="chevron-small-left" size={20} color={"black"} />
