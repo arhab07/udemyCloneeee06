@@ -35,7 +35,7 @@ export const CustomDrawerContent = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   drawerContentContainer: {
-    flex: isAndroid ? 0.01 : 0 ,
+    flex: isAndroid ? 0.01 : 0.07 ,
     paddingTop: 6,
     backgroundColor: '#fff',
   },

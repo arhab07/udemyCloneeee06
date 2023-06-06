@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "task3",
+    "name": "udemyClone3",
     "slug": "task3",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -21,10 +21,23 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.wildan.udemyCloneeeee"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "90dab51a-732b-413e-92ba-bde0abb72c67"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      
+      "url": "https://u.expo.dev/90dab51a-732b-413e-92ba-bde0abb72c67"
     }
   }
 }
