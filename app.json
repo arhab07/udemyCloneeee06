@@ -20,7 +20,8 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#ffffff",
+        "updateUrl": "https://raw.githubusercontent.com/arhab07/udemyCloneeee06/main/android-index.json"
       },
       "package": "com.wildan.udemyCloneeeee"
     },
