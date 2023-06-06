@@ -39,7 +39,7 @@
       "fallbackToCacheTimeout": 0,
       "checkAutomatically": "ON_LOAD",
       "enabled": true,
-      "url": "https://raw.githubusercontent.com/arhab07/udemyCloneeee06/main/android-index.json"
+      "url": "https://d3a80tbvlzmc9d.cloudfront.net/"
     }
   }
 }
