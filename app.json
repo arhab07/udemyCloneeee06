@@ -20,8 +20,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff",
-        "updateUrl": "https://raw.githubusercontent.com/arhab07/udemyCloneeee06/main/android-index.json"
+        "backgroundColor": "#ffffff"
       },
       "package": "com.wildan.udemyCloneeeee"
     },
@@ -37,8 +36,10 @@
       "policy": "sdkVersion"
     },
     "updates": {
-      
-      "url": "https://u.expo.dev/90dab51a-732b-413e-92ba-bde0abb72c67"
+      "fallbackToCacheTimeout": 0,
+      "checkAutomatically": "ON_LOAD",
+      "enabled": true,
+      "url": "https://raw.githubusercontent.com/arhab07/udemyCloneeee06/main/android-index.json"
     }
   }
 }
