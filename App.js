@@ -102,17 +102,17 @@ export default function App() {
   useEffect(() => {
     const checkForUpdates = async () => {
       try {
-        const update = await Updates.checkForUpdateAsync();
+        const update = await Updates.checkForUpdateAsync({ manifestUrl: 'https://raw.githubusercontent.com/arhab07/udemyCloneeee06/main/android-index.json' });
         if (update.isAvailable) {
           await Updates.fetchUpdateAsync();
-          
+          // You can display a notification or prompt the user to reload here
           Updates.reloadAsync();
         }
       } catch (error) {
         console.error('Error checking for updates:', error);
       }
     };
-
+  
     checkForUpdates();
   }, []);
 
